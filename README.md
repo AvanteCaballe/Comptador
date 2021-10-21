@@ -19,3 +19,7 @@ Afegit el tag
 Afegits els botons i el text
 
 Afegit el comptador i funciona
+
+## v0.1
+
+Creat el projecte
