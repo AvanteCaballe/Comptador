@@ -10,6 +10,7 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
+    private val INITIAL_TIME = 60;
     internal lateinit var tapMeButton: Button
     internal lateinit var timeTextView: TextView
     internal lateinit var counterTextView: TextView
@@ -65,14 +66,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun endGame() {
-        Toast.makeText(this, getString(R.string.endGame), Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.endGame, counter), Toast.LENGTH_LONG).show()
         appStarted=false;
+        resetGame();
     }
 
     private fun resetGame() {
-        Toast.makeText(this,getString(R.string.resetGame), Toast.LENGTH_LONG).show();
+        //RESET PUNTUACIÓ A ZERO
         counter= 0;
-        timeTextView.text = getString(R.string.timeText, time);
-        startGame();
+        counterTextView.text = counter.toString();
+        //REINICIALITZAR EL COMPTADOR
+        time = INITIAL_TIME;
+        timeTextView.text = time.toString();
+        initCountdown();
+
+        //GAME STARTED A FALSE
+        appStarted=false;
     }
 }
